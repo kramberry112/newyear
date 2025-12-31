@@ -1,0 +1,113 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000;
+    font-family: 'Arial', sans-serif;
+    overflow-x: hidden;
+}
+
+.text-container {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    background-color: #000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.text-container.active {
+    display: flex;
+}
+
+#syncedText {
+    color: #fff;
+    font-size: 3rem;
+    text-align: center;
+    padding: 2rem;
+    max-width: 90%;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+.video-container {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 2rem;
+    background-color: #000;
+}
+
+.video-container.active {
+    display: flex;
+}
+
+#mainVideo {
+    max-width: 90%;
+    max-height: 70vh;
+    border-radius: 10px;
+    box-shadow: 0 10px 40px rgba(255, 255, 255, 0.1);
+}
+
+.fireworks-button {
+    margin-top: 2rem;
+    padding: 1rem 2.5rem;
+    font-size: 1.5rem;
+    color: #fff;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+}
+
+.fireworks-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(102, 126, 234, 0.6);
+}
+
+.fireworks-button:active {
+    transform: translateY(-1px);
+}
+
+#fireworksCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1000;
+    display: none;
+}
+
+#fireworksCanvas.active {
+    display: block;
+}
+
+@media (max-width: 768px) {
+    #syncedText {
+        font-size: 2rem;
+    }
+    
+    .fireworks-button {
+        font-size: 1.2rem;
+        padding: 0.8rem 2rem;
+    }
+}

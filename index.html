@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025 Season Finale</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Text Display Section -->
+    <div id="textDisplay" class="text-container">
+        <button id="startBtn" class="start-button">Start</button>
+        <p id="syncedText"></p>
+        <audio id="audioPlayer" src="assets/newyear.mp3"></audio>
+    </div>
+
+    <!-- Video Section -->
+    <div id="videoSection" class="video-container">
+        <video id="mainVideo" controls>
+            <source src="assets/manny.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        
+        <button id="fireworksBtn" class="fireworks-button">
+            Launch Fireworks 🎆
+        </button>
+    </div>
+
+    <!-- Fireworks Canvas -->
+    <canvas id="fireworksCanvas"></canvas>
+
+    <script src="js/script.js"></script>
+    <style>
+    .start-button {
+        font-size: 1.5em;
+        padding: 0.5em 2em;
+        margin-bottom: 1em;
+        background: #ffd700;
+        color: #333;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: bold;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        transition: background 0.2s;
+    }
+    .start-button:hover {
+        background: #ffe066;
+    }
+    </style>
+</body>
+</html>

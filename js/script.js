@@ -220,7 +220,53 @@ fireworksBtn.addEventListener('click', () => {
         fireworkParticles = [];
         fireworkRockets = [];
         if (!mainVideo.paused) mainVideo.pause();
+        // Show popup message after fireworks
+        setTimeout(() => {
+            showGrahamPopup();
+        }, 400); // slight delay for effect
     }, 7000);
+// Show a popup message 'PAHINGI GRAHAM'
+function showGrahamPopup() {
+    // Create overlay
+    const overlay = document.createElement('div');
+    overlay.style.position = 'fixed';
+    overlay.style.top = 0;
+    overlay.style.left = 0;
+    overlay.style.width = '100vw';
+    overlay.style.height = '100vh';
+    overlay.style.background = 'rgba(0,0,0,0.85)';
+    overlay.style.display = 'flex';
+    overlay.style.alignItems = 'center';
+    overlay.style.justifyContent = 'center';
+    overlay.style.zIndex = 2000;
+
+    // Create message box
+    const msg = document.createElement('div');
+    msg.textContent = 'PAHINGI GRAHAM';
+    msg.style.background = '#fff';
+    msg.style.color = '#d72660';
+    msg.style.fontSize = '2.5rem';
+    msg.style.fontWeight = 'bold';
+    msg.style.padding = '2rem 3rem';
+    msg.style.borderRadius = '2rem';
+    msg.style.boxShadow = '0 8px 40px rgba(0,0,0,0.3)';
+    msg.style.textAlign = 'center';
+    msg.style.letterSpacing = '0.1em';
+    msg.style.animation = 'popupFadeIn 0.7s';
+
+    // Add close on click
+    overlay.addEventListener('click', () => {
+        overlay.remove();
+    });
+
+    overlay.appendChild(msg);
+    document.body.appendChild(overlay);
+}
+
+// Add popup fade-in animation
+const popupStyle = document.createElement('style');
+popupStyle.textContent = `@keyframes popupFadeIn { from { opacity: 0; transform: scale(0.8);} to { opacity: 1; transform: scale(1);} }`;
+document.head.appendChild(popupStyle);
 });
 
 // More realistic synthesized firework sound using Web Audio API
